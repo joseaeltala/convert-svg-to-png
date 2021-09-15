@@ -1,7 +1,7 @@
 # Convert-SVG-to-png
 Convert SVG code to png and replace the code with a called to the image file in Markdown files
 
-# Objets
+# Objectives
 GitHub cannot view SVG files or code from the web, so the main objective of this action is to convert the svg code inserted into any file to PNG, replacing the SVG line by a call to the image (only markdown).
 
 This will be useful to be able to see the SVG code inserted in .MD files from the GitHub web platform.
