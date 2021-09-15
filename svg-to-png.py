@@ -1,14 +1,11 @@
 #!/usr/bin/python3
 from cairosvg import svg2png
-from pathlib import Path
 import os
 import sys
 import re
 
-
-
 try:   
-    png_dir = "Draws/png/"
+    png_dir = "Draws/"
     args = sys.argv[1:]
     file = open(args[0],"rt")
     file_content = file.read()
@@ -16,18 +13,17 @@ try:
 
     svg_infile = re.search('.*<svg>.*</svg>.*',file_content)
 except IndexError:
-    print("Falta el primer argumento. Escribe el nombre de un fichero")
+    print("The first argument is missing. Write the name of a file")
     exit
 except FileNotFoundError:
-    print("Fichero no encontrado.")
+    print("File not found.")
     exit
 except:
-    print("Ha ocurrido algo inesperado")
+    print("Something unexpected happened")
     exit
 else:
     if not os.path.exists(png_dir):
         os.makedirs(png_dir)
-
 
 try:
     n = 0
@@ -38,10 +34,10 @@ try:
         file_content = file_content.replace(valor,'![](' + pngf + ')')
 
 except ValueError:
-    print("Falla algo en tu código SVG. Puede ser que no esté definido el tamaño.")
+    print("Something is wrong in your SVG code. The size may not be defined.")
     exit
 except:
-    print("Ha ocurrido algo inesperado")
+    print("Something unexpected happened")
     exit
 else:
 
