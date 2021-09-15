@@ -19,3 +19,4 @@ runs:
     - name: Execute python script to converts
       shell: bash
       run: python ${{ github.action_path }}/svg-to-png.py ${{ inputs.file }}
+      
