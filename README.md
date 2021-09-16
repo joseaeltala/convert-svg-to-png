@@ -1,15 +1,13 @@
-# Convert-SVG-to-png
-Convert SVG code to png and replace the code with a called to the image file in Markdown files
-
-# Objectives
-GitHub cannot view SVG files or code from the web, so the main objective of this action is to convert the svg code inserted into any file to PNG, replacing the SVG line by a call to the image (only markdown).
-
-This will be useful to be able to see the SVG code inserted in .MD files from the GitHub web platform.
+# Convert-SVG-to-png @ only
+Convert the SVG code inserted in a file (include .svg files) to PNG.
 
 # Inputs
 | NAME | VALUE | DEFAULT | DESCRIPTION |
 | ---- | ----- | ------- | ----------- |
 | file | string | README.md | The file from which the SVG code will be collected and in which the code will be replaced by a call to the generated PNG|
+| path | string | Images/ | The path where the PNG file will go |
+| name | string | svg | The filename format to save the PNG file |
+
 
 # Example Workflow file
     on: push
@@ -19,9 +17,11 @@ This will be useful to be able to see the SVG code inserted in .MD files from th
         steps:
           - uses: actions/checkout@v1
           - name: convert-svg-to-png
-            uses: joseaeltala/convert-svg-to-png/@master
+            uses: joseaeltala/convert-svg-to-png/@only
             with:
               file: "README.md"
+              path: "Images/png"
+              name: "converted-svg-file"
           - name: Commit files
             run: |
               git config user.name github-actions
