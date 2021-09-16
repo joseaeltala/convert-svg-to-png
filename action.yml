@@ -4,6 +4,14 @@ inputs:
     description: 'file path to convert the SVG code'
     required: true
     default: 'README.md'
+  path:
+    description: 'The path where the converted will go'
+    required: true
+    default: 'Images/'
+  name:
+    description: 'The name of file coverted in PNG'
+    required: true
+    default: 'Draw'
 runs:
   using: 'composite'
   steps:
@@ -18,5 +26,5 @@ runs:
           cairosvg
     - name: Execute python script to converts
       shell: bash
-      run: python ${{ github.action_path }}/svg-to-png.py ${{ inputs.file }}
+      run: python ${{ github.action_path }}/svg-to-png.py ${{ inputs.file }} ${{ inputs.path }} ${{ inputs.name }}
       

@@ -10,6 +10,8 @@ This will be useful to be able to see the SVG code inserted in .MD files from th
 | NAME | VALUE | DEFAULT | DESCRIPTION |
 | ---- | ----- | ------- | ----------- |
 | file | string | README.md | The file from which the SVG code will be collected and in which the code will be replaced by a call to the generated PNG|
+| path | string | Images/ | The path where the PNG file will go |
+| name | string | Draw | The filename format to save the PNG file |
 
 # Example Workflow file
     on: push
@@ -22,6 +24,8 @@ This will be useful to be able to see the SVG code inserted in .MD files from th
             uses: joseaeltala/convert-svg-to-png/@master
             with:
               file: "README.md"
+              path: "Images/png"
+              name: "converted-svg-file"
           - name: Commit files
             run: |
               git config user.name github-actions
