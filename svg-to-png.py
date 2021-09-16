@@ -38,7 +38,7 @@ try:
 
         print(code)
 
-        pngf = png_dir + filename + ".png"
+        pngf = png_dir + '/' + filename + ".png"
         
         cn = 1
         while os.path.exists(pngf):
